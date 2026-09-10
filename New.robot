@@ -24,7 +24,7 @@ Create Opportunity - Dynamic Data
     ClickText         New
 
     TypeText          Opportunity Name            ${OpportunityName}
-    TypeText          Close Date                                    
+    TypeText          Close Date                  9/15/2026                  
     DropDown          Stage                       Prospecting
 
     ClickText         Save
