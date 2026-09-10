@@ -6,7 +6,7 @@ Suite Setup           Open Browser                about:blank             chrome
 Suite Teardown        Close All Browsers
 
 *** Test Cases ***
-Create Lead - Dynamic Data
+Create Opportunity - Dynamic Data
 
     GoTo              ${login_url}
 
@@ -20,28 +20,11 @@ Create Lead - Dynamic Data
     ClickText         Verify
 
     VerifyText        Home                        timeout=30    
-    ClickText         Leads
+    ClickText         Opportunities
     ClickText         New
 
-    TypeText          First Name                  ${FirstName}
-    TypeText          Last Name                   ${LastName}
-    TypeText          Company                     ${Company}
-    TypeText          Email                       ${Email}
-    TypeText          Phone                       ${Phone}
+    TypeText          Opportunity Name            ${FirstName}
+    TypeText          Close Date                  ${LastName}
+    TypeText          Stage                       ${Company}
 
     ClickText         Save
-
-    VerifyText        ${FirstName} ${LastName}    timeout=30
-    ClickElement      xpath=//*[text()='Show more actions']
-    ClickText         Convert
-    VerifyText        Convert Lead
-    VerifyPickList    Converted Status            Closed - Converted
-    ClickText         Convert
-    VerifyText        Your lead has been converted
-    ClickText         Go to Leads
-    ClickText         Accounts
-    Clicktext         ${Company}
-    VerifyText        ${LastName}
-    ClickElement      xpath=//a[normalize-space(.)='${Company}-']
-    Clicktext         ${Company}
-    VerifyText        ${LastName}
