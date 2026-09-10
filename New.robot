@@ -28,3 +28,9 @@ Create Opportunity - Dynamic Data
     ClickElement    xpath=//label[contains(normalize-space(.),'Stage')]/following::button[1]
     ClickText       Prospecting
     ClickText       Save
+    VerifyText      ${OpportunityName}
+
+    ClickElement    xpath=//a[@title="Show 2 more actions"]
+    ClickText       Add Products
+    VerifyText      Add Products
+
