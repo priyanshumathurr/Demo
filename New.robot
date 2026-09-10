@@ -23,8 +23,8 @@ Create Opportunity - Dynamic Data
     ClickText         Opportunities
     ClickText         New
 
-    TypeText          Opportunity Name            ${FirstName}
-    TypeText          Close Date                  ${LastName}
-    TypeText          Stage                       ${Company}
+    TypeText          Opportunity Name            ${OpportunityName}
+    TypeText          Close Date                                    
+    DropDown          Stage                       Prospecting
 
     ClickText         Save
