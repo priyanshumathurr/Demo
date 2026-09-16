@@ -25,10 +25,11 @@ Create Opportunity - Dynamic Data
 
     TypeText        Opportunity Name            ${OpportunityName}
     TypeText        Close Date                  9/15/2026
-    ClickElement    xpath=//label[contains(normalize-space(.),'Stage')]/following::button[1]
+    ClickElement    xpath=//button[@aria-label='Stage']
     ClickText       Prospecting
+    VerifyText      Prospecting
     ClickText       Save
-    VerifyText      ${OpportunityName}          timeout=30
+    VerifyText      ${OpportunityName}    timeout=30
 
     ClickElement    xpath=//a[@title="Show 2 more actions"]
     ClickText       Add Products
