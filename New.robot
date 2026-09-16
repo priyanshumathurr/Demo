@@ -33,4 +33,3 @@ Create Opportunity - Dynamic Data
     ClickElement    xpath=//a[@title="Show 2 more actions"]
     ClickText       Add Products
     VerifyText      Add Products
-
