@@ -25,10 +25,30 @@ Create Opportunity - Dynamic Data
 
     TypeText        Opportunity Name            ${OpportunityName}
     TypeText        Close Date                  9/15/2026
-    ClickElement    xpath=//*[contains(normalize-space(.),'Stage')]/following::button[1]
-    ClickText       Prospecting
-    ClickText       Save
-    VerifyText      ${OpportunityName}    timeout=30
-    ClickElement    xpath=//a[@title="Show 2 more actions"]
-    ClickText       Add Products
-    VerifyText      Add Products
+    SelectDropdown    name=StageName    Prospecting
+    ClickText           Save
+    WaitUntilPageLoaded
+
+    VerifyText           ${OpportunityName}
+    VerifyText           Prospecting
+
+    ${oppUrl}=    GetURL
+    Log    Opportunity created at: ${oppUrl}
+    
+        ClickText           Related
+    WaitUntilPageLoaded
+    ClickText           Add Product
+    WaitUntilPageLoaded
+    VerifyText           Add Products
+
+    @{products}=    Create List    GenWatt Diesel 1000kW    GenWatt Propane 500kW    Installation: Portable
+
+    FOR    ${product}    IN    @{products}
+        TypeText    css=input[placeholder='Search Products...']    ${product}
+        Wait Until Element Is Visible    xpath=//a[text()='${product}']    timeout=5s
+        ClickElement    xpath=//tr[.//a[text()='${product}']]//input[@type='checkbox']
+    END
+
+    ClickText           Next
+    WaitUntilPageLoaded
+    VerifyText           Products
