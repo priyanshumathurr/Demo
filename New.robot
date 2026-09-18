@@ -35,7 +35,7 @@ Create Opportunity - Dynamic Data
     ${oppUrl}=    GetURL
     Log    Opportunity created at: ${oppUrl}
     
-        ClickText           Related
+    ClickText           Related
     WaitUntilPageLoaded
     ClickText           Add Product
     WaitUntilPageLoaded
